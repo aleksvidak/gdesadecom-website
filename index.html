@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igralište - Pronađi aktivnosti za decu</title>
+    <meta name="description" content="Igralište pomaže roditeljima da pronađu najbolja igrališta i aktivnosti za svoju decu. Otkrijte šta se dešava u vašem komšiluku!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .hero {
+            background: white;
+            border-radius: 24px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        
+        .emoji-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            text-align: left;
+        }
+        
+        .feature {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .feature h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+        
+        .feature p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .store-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .store-badge {
+            height: 50px;
+            border-radius: 8px;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .coming-soon {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 40px;
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 40px 24px;
+            }
+            .tagline {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="emoji-icon">🎡</div>
+            <h1>Igralište</h1>
+            <p class="tagline">Pronađi najbolje aktivnosti za svoju decu</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Otkrijte lokacije</h3>
+                    <p>Igrališta, parkovi i centri za decu na interaktivnoj mapi</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📅</div>
+                    <h3>Budite u toku</h3>
+                    <p>Radionice, predstave i događaji u vašem gradu</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Zajednica</h3>
+                    <p>Delite iskustva i preporuke sa drugim roditeljima</p>
+                </div>
+            </div>
+            
+            <div class="coming-soon">
+                🚀 Uskoro na App Store
+            </div>
+        </div>
+        
+        <footer>
+            <div class="links">
+                <a href="/privacy">Politika privatnosti</a>
+                <a href="mailto:kontakt@gdesadecom.rs">Kontakt</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem;">
+                © 2026 Igralište. Sva prava zadržana.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politika privatnosti - Igralište</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+        
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #1a1a2e;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: #444;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            color: #555;
+        }
+        
+        ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        td a {
+            color: #667eea;
+        }
+        
+        .updated {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+        
+        .highlight {
+            background: #f0f4ff;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .contact-box {
+            background: #f8f9fa;
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .lang-switch {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .lang-switch a {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 0 4px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .lang-switch a.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .lang-switch a:not(.active) {
+            background: #eee;
+            color: #666;
+        }
+        
+        .lang-switch a:not(.active):hover {
+            background: #ddd;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                padding: 24px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/">🎡 Igralište</a>
+        <p>Politika privatnosti</p>
+    </div>
+    
+    <div class="container">
+        <div class="content">
+            <div class="lang-switch">
+                <a href="#serbian" class="active" onclick="showLang('sr')">🇷🇸 Srpski</a>
+                <a href="#english" onclick="showLang('en')">🇬🇧 English</a>
+            </div>
+            
+            <!-- Serbian Version -->
+            <div id="lang-sr">
+                <h1>Politika privatnosti</h1>
+                <p class="updated"><em>Poslednje ažuriranje: 4. februar 2026.</em></p>
+                
+                <h2>Uvod</h2>
+                <p>Igralište ("mi", "naš" ili "aplikacija") poštuje vašu privatnost. Ova politika privatnosti objašnjava kako prikupljamo, koristimo i štitimo vaše podatke kada koristite našu mobilnu aplikaciju.</p>
+                
+                <h2>Podaci koje prikupljamo</h2>
+                
+                <h3>Podaci o lokaciji</h3>
+                <ul>
+                    <li>Prikupljamo vašu približnu lokaciju kako bismo vam prikazali aktivnosti i igrališta u vašoj blizini</li>
+                    <li>Lokacija se koristi samo dok aktivno koristite aplikaciju (When In Use)</li>
+                    <li>Ne pratimo vašu lokaciju u pozadini</li>
+                    <li>Možete onemogućiti pristup lokaciji u podešavanjima uređaja, ali neke funkcije aplikacije neće biti dostupne</li>
+                </ul>
+                
+                <h3>Podaci o nalogu</h3>
+                <p>Kada kreirate nalog, prikupljamo:</p>
+                <ul>
+                    <li>Email adresa (obavezno, za prijavu)</li>
+                    <li>Ime (opciono)</li>
+                    <li>Profilna slika (opciono)</li>
+                </ul>
+                
+                <h3>Fotografije i kamera</h3>
+                <ul>
+                    <li>Pristupamo kameri samo kada želite da fotografišete aktivnost ili lokaciju</li>
+                    <li>Pristupamo galeriji samo kada želite da odaberete postojeću fotografiju</li>
+                    <li>Fotografije koje otpremite su javno vidljive drugim korisnicima</li>
+                </ul>
+                
+                <h3>Podaci o korišćenju</h3>
+                <ul>
+                    <li>Omiljene aktivnosti i lokacije koje sačuvate</li>
+                    <li>Aktivnosti i lokacije koje dodate</li>
+                    <li>Ocene i komentari koje ostavite</li>
+                </ul>
+                
+                <h2>Kako koristimo vaše podatke</h2>
+                <p>Vaše podatke koristimo isključivo da:</p>
+                <ul>
+                    <li>Prikažemo aktivnosti i igrališta u vašoj blizini</li>
+                    <li>Sačuvamo vaše omiljene lokacije</li>
+                    <li>Omogućimo vam da delite sadržaj sa zajednicom</li>
+                    <li>Poboljšamo funkcionalnost aplikacije</li>
+                </ul>
+                
+                <div class="highlight">
+                    <strong>Ne koristimo vaše podatke za:</strong>
+                    <ul style="margin-top: 10px; margin-bottom: 0;">
+                        <li>Reklamiranje ili marketing trećih strana</li>
+                        <li>Prodaju podataka</li>
+                        <li>Praćenje ponašanja van aplikacije</li>
+                    </ul>
+                </div>
+                
+                <h2>Skladištenje i bezbednost podataka</h2>
+                <ul>
+                    <li>Vaši podaci se čuvaju na Supabase serverima</li>
+                    <li>Primenjujemo industrijsko-standardne bezbednosne mere (enkripcija, siguran prenos podataka)</li>
+                    <li>Lozinke se čuvaju u enkriptovanom obliku i nisu dostupne ni nama</li>
+                </ul>
+                
+                <h2>Deljenje podataka sa trećim stranama</h2>
+                <p><strong>Ne prodajemo vaše podatke.</strong> Podatke delimo samo sa sledećim provajderima koji su neophodni za rad aplikacije:</p>
+                
+                <table>
+                    <tr>
+                        <th>Provajder</th>
+                        <th>Svrha</th>
+                        <th>Politika privatnosti</th>
+                    </tr>
+                    <tr>
+                        <td>Supabase</td>
+                        <td>Baza podataka i autentifikacija</td>
+                        <td><a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></td>
+                    </tr>
+                    <tr>
+                        <td>Mapbox</td>
+                        <td>Prikaz mapa</td>
+                        <td><a href="https://www.mapbox.com/legal/privacy" target="_blank">mapbox.com/legal/privacy</a></td>
+                    </tr>
+                </table>
+                
+                <p>Takođe možemo podeliti podatke ako to zahteva zakon ili sudski nalog.</p>
+                
+                <h2>Vaša prava (GDPR)</h2>
+                <p>U skladu sa GDPR regulativom, imate pravo da:</p>
+                <ul>
+                    <li><strong>Pristup:</strong> Zatražite kopiju svih podataka koje imamo o vama</li>
+                    <li><strong>Ispravka:</strong> Ispravite netačne podatke</li>
+                    <li><strong>Brisanje:</strong> Obrišete svoj nalog i sve povezane podatke</li>
+                    <li><strong>Prenosivost:</strong> Dobijete svoje podatke u mašinski čitljivom formatu</li>
+                    <li><strong>Povlačenje saglasnosti:</strong> Onemogućite pristup lokaciji, kameri ili galeriji</li>
+                </ul>
+                
+                <h2>Zadržavanje podataka</h2>
+                <ul>
+                    <li>Podaci naloga se čuvaju dok ne obrišete nalog</li>
+                    <li>Nakon brisanja naloga, svi vaši podaci se trajno brišu u roku od 30 dana</li>
+                    <li>Anonimizovani statistički podaci mogu biti zadržani</li>
+                </ul>
+                
+                <h2>Deca</h2>
+                <p>Aplikacija je namenjena roditeljima i starateljima za pronalaženje aktivnosti za njihovu decu.</p>
+                <ul>
+                    <li>Ne prikupljamo svesno podatke od dece mlađe od 13 godina</li>
+                    <li>Ako saznamo da smo prikupili podatke od deteta mlađeg od 13 godina, odmah ćemo ih obrisati</li>
+                    <li>Roditelji mogu kontaktirati nas ako veruju da smo prikupili podatke od njihovog deteta</li>
+                </ul>
+                
+                <h2>Promene politike</h2>
+                <p>O značajnim promenama ove politike obavestićemo vas:</p>
+                <ul>
+                    <li>Putem obaveštenja u aplikaciji</li>
+                    <li>Putem email-a (ako ste registrovani)</li>
+                </ul>
+                
+                <h2>Kontakt</h2>
+                <div class="contact-box">
+                    <p>Za sva pitanja o privatnosti, zahteve za pristup podacima ili pritužbe:</p>
+                    <p><strong>Email:</strong> <a href="mailto:privatnost@gdesadecom.rs">privatnost@gdesadecom.rs</a></p>
+                    <p><strong>Odgovor:</strong> U roku od 30 dana</p>
+                </div>
+            </div>
+            
+            <!-- English Version -->
+            <div id="lang-en" style="display: none;">
+                <h1>Privacy Policy</h1>
+                <p class="updated"><em>Last updated: February 4, 2026</em></p>
+                
+                <h2>Introduction</h2>
+                <p>Igralište ("we", "our", or "app") respects your privacy. This privacy policy explains how we collect, use, and protect your data when using our mobile application.</p>
+                
+                <h2>Data We Collect</h2>
+                
+                <h3>Location Data</h3>
+                <ul>
+                    <li>We collect your approximate location to show activities and playgrounds near you</li>
+                    <li>Location is only used while you actively use the app (When In Use)</li>
+                    <li>We do not track your location in the background</li>
+                    <li>You can disable location access in your device settings, but some app features will not be available</li>
+                </ul>
+                
+                <h3>Account Data</h3>
+                <p>When you create an account, we collect:</p>
+                <ul>
+                    <li>Email address (required, for login)</li>
+                    <li>Name (optional)</li>
+                    <li>Profile picture (optional)</li>
+                </ul>
+                
+                <h3>Photos and Camera</h3>
+                <ul>
+                    <li>We access your camera only when you want to photograph an activity or location</li>
+                    <li>We access your photo library only when you want to select an existing photo</li>
+                    <li>Photos you upload are publicly visible to other users</li>
+                </ul>
+                
+                <h3>Usage Data</h3>
+                <ul>
+                    <li>Favorite activities and locations you save</li>
+                    <li>Activities and locations you add</li>
+                    <li>Ratings and reviews you leave</li>
+                </ul>
+                
+                <h2>How We Use Your Data</h2>
+                <p>We use your data exclusively to:</p>
+                <ul>
+                    <li>Display activities and playgrounds near you</li>
+                    <li>Save your favorite locations</li>
+                    <li>Allow you to share content with the community</li>
+                    <li>Improve app functionality</li>
+                </ul>
+                
+                <div class="highlight">
+                    <strong>We do NOT use your data for:</strong>
+                    <ul style="margin-top: 10px; margin-bottom: 0;">
+                        <li>Third-party advertising or marketing</li>
+                        <li>Selling data</li>
+                        <li>Tracking behavior outside the app</li>
+                    </ul>
+                </div>
+                
+                <h2>Data Storage and Security</h2>
+                <ul>
+                    <li>Your data is stored on Supabase servers</li>
+                    <li>We apply industry-standard security measures (encryption, secure data transfer)</li>
+                    <li>Passwords are stored encrypted and are not accessible even to us</li>
+                </ul>
+                
+                <h2>Third-Party Data Sharing</h2>
+                <p><strong>We do not sell your data.</strong> We only share data with the following providers necessary for app operation:</p>
+                
+                <table>
+                    <tr>
+                        <th>Provider</th>
+                        <th>Purpose</th>
+                        <th>Privacy Policy</th>
+                    </tr>
+                    <tr>
+                        <td>Supabase</td>
+                        <td>Database and authentication</td>
+                        <td><a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></td>
+                    </tr>
+                    <tr>
+                        <td>Mapbox</td>
+                        <td>Map display</td>
+                        <td><a href="https://www.mapbox.com/legal/privacy" target="_blank">mapbox.com/legal/privacy</a></td>
+                    </tr>
+                </table>
+                
+                <p>We may also share data when required by law or court order.</p>
+                
+                <h2>Your Rights (GDPR)</h2>
+                <p>In accordance with GDPR regulations, you have the right to:</p>
+                <ul>
+                    <li><strong>Access:</strong> Request a copy of all data we have about you</li>
+                    <li><strong>Rectification:</strong> Correct inaccurate data</li>
+                    <li><strong>Erasure:</strong> Delete your account and all associated data</li>
+                    <li><strong>Portability:</strong> Receive your data in a machine-readable format</li>
+                    <li><strong>Withdraw consent:</strong> Disable access to location, camera, or photo library</li>
+                </ul>
+                
+                <h2>Data Retention</h2>
+                <ul>
+                    <li>Account data is kept until you delete your account</li>
+                    <li>After account deletion, all your data is permanently deleted within 30 days</li>
+                    <li>Anonymized statistical data may be retained</li>
+                </ul>
+                
+                <h2>Children</h2>
+                <p>The app is intended for parents and guardians to find activities for their children.</p>
+                <ul>
+                    <li>We do not knowingly collect data from children under 13</li>
+                    <li>If we learn that we have collected data from a child under 13, we will delete it immediately</li>
+                    <li>Parents may contact us if they believe we have collected data from their child</li>
+                </ul>
+                
+                <h2>Policy Changes</h2>
+                <p>We will notify you of significant changes to this policy:</p>
+                <ul>
+                    <li>Through in-app notifications</li>
+                    <li>Via email (if registered)</li>
+                </ul>
+                
+                <h2>Contact</h2>
+                <div class="contact-box">
+                    <p>For privacy questions, data access requests, or complaints:</p>
+                    <p><strong>Email:</strong> <a href="mailto:privacy@gdesadecom.rs">privacy@gdesadecom.rs</a></p>
+                    <p><strong>Response time:</strong> Within 30 days</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p><a href="/">← Nazad na početnu</a></p>
+        <p style="margin-top: 10px;">© 2026 Igralište</p>
+    </footer>
+    
+    <script>
+        function showLang(lang) {
+            document.getElementById('lang-sr').style.display = lang === 'sr' ? 'block' : 'none';
+            document.getElementById('lang-en').style.display = lang === 'en' ? 'block' : 'none';
+            
+            document.querySelectorAll('.lang-switch a').forEach(a => {
+                a.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
