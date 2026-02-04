@@ -3,646 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gde sa decom? - Pronađi aktivnosti za decu</title>
-    <meta name="description" content="Gde sa decom? je platforma koja pomaže roditeljima da pronađu najbolja igrališta, aktivnosti i događaje za svoju decu. Preuzmite Igralište aplikaciju!">
-    <meta property="og:title" content="Gde sa decom? - Pronađi aktivnosti za decu">
-    <meta property="og:description" content="Platforma koja pomaže roditeljima da pronađu najbolja igrališta i aktivnosti za svoju decu.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gdesadecom.rs">
+    <title>Gde sa decom? — Igralište</title>
+    <meta name="description" content="Pronađite aktivnosti za vašu decu. Igrališta, radionice, događaji — sve na jednom mestu.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #F9FAFB;
-            color: #2d3436;
+            font-family: 'DM Sans', sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
             line-height: 1.6;
         }
-        
-        /* Header */
-        .header {
-            padding: 20px 40px;
+
+        /* Minimal nav */
+        nav {
+            padding: 24px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #6366F1;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: #1a1a1a;
             text-decoration: none;
         }
         
-        .logo span {
-            color: #2d3436;
-        }
-        
-        .nav-links a {
-            color: #636e72;
+        nav a:not(.logo) {
+            color: #666;
             text-decoration: none;
-            margin-left: 30px;
-            font-weight: 600;
-            transition: color 0.2s;
+            font-size: 0.95rem;
         }
         
-        .nav-links a:hover {
-            color: #6366F1;
-        }
-        
-        /* Hero Section */
+        nav a:not(.logo):hover { color: #1a1a1a; }
+
+        /* Hero - asymmetric, breathing room */
         .hero {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 40px 80px;
+            padding: 80px 32px 120px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr 380px;
+            gap: 80px;
             align-items: center;
         }
         
-        .hero-content h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            color: #2d3436;
-            line-height: 1.2;
-            margin-bottom: 20px;
+        .hero-text h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #1a1a1a;
         }
         
-        .hero-content h1 .highlight {
-            color: #6366F1;
+        .hero-text p {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 480px;
         }
         
-        .hero-content .subtitle {
-            font-size: 1.25rem;
-            color: #636e72;
-            margin-bottom: 30px;
-            line-height: 1.7;
-        }
-        
-        .app-badge {
-            display: inline-flex;
+        .app-card {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
             align-items: center;
             gap: 16px;
-            background: white;
-            padding: 16px 24px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            max-width: 320px;
         }
         
         .app-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #4ECDC4 0%, #6366F1 100%);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-        }
-        
-        .app-info h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #2d3436;
-        }
-        
-        .app-info p {
-            font-size: 0.9rem;
-            color: #636e72;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
-            color: white;
-            padding: 16px 32px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #5eead4 0%, #6366f1 100%);
             border-radius: 12px;
-            font-weight: 700;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
-        }
-        
-        .coming-soon-tag {
-            display: inline-block;
-            background: #ffeaa7;
-            color: #d35400;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-left: 12px;
-        }
-        
-        /* Phone Mockup */
-        .hero-visual {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
         }
         
-        .phone-mockup {
+        .app-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .app-card span {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #f0fdf4;
+            color: #15803d;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        /* Phone mockup with real screenshot */
+        .phone {
             width: 280px;
-            height: 580px;
-            background: #1a1a2e;
-            border-radius: 40px;
-            padding: 12px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-            position: relative;
+            height: 560px;
+            background: #000;
+            border-radius: 36px;
+            padding: 8px;
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.25);
         }
         
-        .phone-screen {
+        .phone-inner {
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, #EEF2FF 0%, #E0E7FF 100%);
-            border-radius: 32px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .phone-header {
-            padding: 50px 20px 20px;
-            text-align: center;
-            background: white;
-        }
-        
-        .phone-header h4 {
-            color: #1F2937;
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-        
-        .phone-header p {
-            color: #6B7280;
-            font-size: 0.85rem;
-        }
-        
-        .phone-map {
-            flex: 1;
-            background: #dfe6e9;
-            margin: 0 12px 12px;
-            border-radius: 20px;
-            position: relative;
+            background: #fff;
+            border-radius: 30px;
             overflow: hidden;
         }
         
-        .map-pin {
-            position: absolute;
-            width: 36px;
-            height: 36px;
-            background: #EC4899;
-            border-radius: 50% 50% 50% 0;
-            transform: rotate(-45deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        .phone-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
         }
-        
-        .map-pin::after {
-            content: '🎡';
-            transform: rotate(45deg);
-            font-size: 16px;
-        }
-        
-        .pin-1 { top: 30%; left: 20%; background: #EC4899; }
-        .pin-1::after { content: '🎈'; }
-        .pin-2 { top: 50%; left: 60%; background: #F97316; }
-        .pin-2::after { content: '⚽'; }
-        .pin-3 { top: 70%; left: 35%; background: #A855F7; }
-        .pin-3::after { content: '🎨'; }
-        
-        /* Features Section */
+
+        /* Features - simple cards */
         .features {
-            background: white;
-            padding: 80px 40px;
+            background: #fff;
+            padding: 100px 32px;
         }
         
-        .features-container {
-            max-width: 1200px;
+        .features-inner {
+            max-width: 900px;
             margin: 0 auto;
         }
         
-        .section-title {
+        .features h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 48px;
             text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #2d3436;
-            margin-bottom: 10px;
-        }
-        
-        .section-title p {
-            color: #636e72;
-            font-size: 1.1rem;
         }
         
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 32px;
         }
         
-        .feature-card {
-            text-align: center;
-            padding: 30px;
+        .feature {
+            padding: 24px;
+            border: 1px solid #eee;
+            border-radius: 12px;
         }
         
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: #EEF2FF;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            margin: 0 auto 20px;
+            font-size: 28px;
+            margin-bottom: 16px;
         }
         
-        .feature-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #2d3436;
+        .feature h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
         
-        .feature-card p {
-            color: #636e72;
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .feature p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
         }
-        
-        /* About Section */
+
+        /* About - clean and simple */
         .about {
-            padding: 80px 40px;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
+            padding: 100px 32px;
             text-align: center;
         }
         
         .about h2 {
-            font-size: 2rem;
-            font-weight: 800;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
             margin-bottom: 20px;
-            color: #2d3436;
         }
         
         .about p {
-            color: #636e72;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-        
-        .brand-connection {
-            background: #EEF2FF;
-            padding: 30px;
-            border-radius: 20px;
-            margin-top: 40px;
-        }
-        
-        .brand-connection .brand-logos {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 16px;
-        }
-        
-        .brand-logos .platform-name {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #6366F1;
-        }
-        
-        .brand-logos .arrow {
-            font-size: 1.5rem;
-            color: #b2bec3;
-        }
-        
-        .brand-logos .app-name {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #2d3436;
-        }
-        
-        .brand-logos .mini-icon {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-        
-        .brand-connection p {
-            color: #636e72;
-            font-size: 0.95rem;
-            margin: 0;
-        }
-        
-        /* Footer */
-        footer {
-            background: #2d3436;
-            color: white;
-            padding: 60px 40px;
-        }
-        
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 60px;
-        }
-        
-        .footer-brand h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-        
-        .footer-brand h3 span {
-            color: #6366F1;
-        }
-        
-        .footer-brand p {
-            color: #b2bec3;
+            color: #555;
+            font-size: 1.05rem;
             line-height: 1.7;
         }
         
-        .footer-links h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: white;
+        .brand-note {
+            margin-top: 40px;
+            padding: 24px;
+            background: #f5f5f5;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #666;
         }
         
-        .footer-links a {
-            display: block;
-            color: #b2bec3;
-            text-decoration: none;
-            margin-bottom: 12px;
-            transition: color 0.2s;
-        }
-        
-        .footer-links a:hover {
-            color: #6366F1;
-        }
-        
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding-top: 30px;
-            border-top: 1px solid #404040;
-            display: flex;
-            justify-content: space-between;
-            color: #636e72;
+        .brand-note strong { color: #1a1a1a; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #eee;
+            padding: 48px 32px;
+            text-align: center;
+            color: #888;
             font-size: 0.9rem;
         }
         
+        footer a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 16px;
+        }
+        
+        footer a:hover { color: #1a1a1a; }
+        
+        .footer-links { margin-bottom: 16px; }
+
         /* Responsive */
-        @media (max-width: 900px) {
+        @media (max-width: 800px) {
             .hero {
                 grid-template-columns: 1fr;
                 text-align: center;
-                padding: 40px 20px 60px;
+                padding: 60px 24px 80px;
+                gap: 48px;
             }
             
-            .hero-content h1 {
-                font-size: 2.4rem;
-            }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text p { margin: 0 auto 32px; }
+            .app-card { margin: 0 auto 24px; }
             
-            .hero-visual {
-                order: -1;
-            }
-            
-            .phone-mockup {
+            .phone {
                 width: 240px;
-                height: 500px;
+                height: 480px;
+                margin: 0 auto;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            
-            .header {
-                padding: 20px;
-            }
-            
-            .nav-links a {
-                margin-left: 16px;
-                font-size: 0.9rem;
-            }
-        }
-        
-        @media (max-width: 500px) {
-            .app-badge {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .brand-logos {
-                flex-direction: column !important;
-            }
-            
-            .brand-logos .arrow {
-                transform: rotate(90deg);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <a href="/" class="logo">Gde sa <span>decom?</span></a>
-        <nav class="nav-links">
-            <a href="#features">Mogućnosti</a>
-            <a href="#about">O nama</a>
-            <a href="/privacy">Privatnost</a>
-        </nav>
-    </header>
-    
-    <!-- Hero Section -->
+    <nav>
+        <a href="/" class="logo">Gde sa decom?</a>
+        <a href="/privacy">Privatnost</a>
+    </nav>
+
     <section class="hero">
-        <div class="hero-content">
-            <h1>Pronađite savršenu <span class="highlight">aktivnost</span> za vaše dete</h1>
-            <p class="subtitle">
-                <strong>Gde sa decom?</strong> je platforma koja pomaže roditeljima da otkriju 
-                igrališta, radionice, događaje i zabavne sadržaje za decu — sve na jednom mestu.
-            </p>
+        <div class="hero-text">
+            <h1>Pronađite aktivnosti za vašu decu</h1>
+            <p>Igrališta, kreativne radionice, sportski programi, rođendaonice — sve na jednom mestu. Za roditelje koji žele najbolje za svoju decu.</p>
             
-            <div class="app-badge">
-                <div class="app-icon">🎡</div>
-                <div class="app-info">
+            <div class="app-card">
+                <div class="app-icon">😊</div>
+                <div>
                     <h3>Igralište</h3>
-                    <p>Zvanična aplikacija platforme</p>
+                    <span>iOS aplikacija</span>
                 </div>
             </div>
             
-            <div>
-                <a href="#" class="cta-button">Preuzmi aplikaciju</a>
-                <span class="coming-soon-tag">Uskoro</span>
-            </div>
+            <span class="badge">🚀 Uskoro na App Store</span>
         </div>
         
-        <div class="hero-visual">
-            <div class="phone-mockup">
-                <div class="phone-screen">
-                    <div class="phone-header">
-                        <h4>🎡 Igralište</h4>
-                        <p>3 lokacije u blizini</p>
-                    </div>
-                    <div class="phone-map">
-                        <div class="map-pin pin-1"></div>
-                        <div class="map-pin pin-2"></div>
-                        <div class="map-pin pin-3"></div>
-                    </div>
-                </div>
+        <div class="phone">
+            <div class="phone-inner">
+                <img src="screenshots/app_map_v3.png" alt="Igralište app screenshot">
             </div>
         </div>
     </section>
-    
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="features-container">
-            <div class="section-title">
-                <h2>Sve što vam treba</h2>
-                <p>Igralište aplikacija vam donosi ceo svet dečjih aktivnosti</p>
-            </div>
+
+    <section class="features">
+        <div class="features-inner">
+            <h2>Šta možete da pronađete</h2>
             
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature">
                     <div class="feature-icon">🗺️</div>
-                    <h3>Interaktivna mapa</h3>
-                    <p>Pronađite igrališta, parkove i centre za decu u vašoj blizini na jednostavnoj mapi</p>
+                    <h3>Mapa aktivnosti</h3>
+                    <p>Pregledajte šta se dešava u vašem komšiluku na interaktivnoj mapi.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature">
+                    <div class="feature-icon">⚽</div>
+                    <h3>Sport i rekreacija</h3>
+                    <p>Fudbal, plivanje, gimnastika — pronađite sportske aktivnosti za sve uzraste.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Kreativne radionice</h3>
+                    <p>Likovno, muzika, gluma — podržite kreativnost vašeg deteta.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🎂</div>
+                    <h3>Rođendani</h3>
+                    <p>Pronađite savršeno mesto za proslavu dečjeg rođendana.</p>
+                </div>
+                
+                <div class="feature">
                     <div class="feature-icon">📅</div>
-                    <h3>Događaji i radionice</h3>
-                    <p>Budite u toku sa predstavama, kreativnim radionicama i dečjim programima</p>
+                    <h3>Događaji</h3>
+                    <p>Predstave, festivali, radionice — budite u toku sa dešavanjima.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature">
                     <div class="feature-icon">⭐</div>
-                    <h3>Ocene i preporuke</h3>
-                    <p>Pročitajte iskustva drugih roditelja i podelite svoje utiske</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Filteri po uzrastu</h3>
-                    <p>Pronađite aktivnosti prilagođene godinama vašeg deteta</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">❤️</div>
-                    <h3>Omiljene lokacije</h3>
-                    <p>Sačuvajte mesta koja volite za brz pristup u svakom trenutku</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📍</div>
-                    <h3>Dodajte lokacije</h3>
-                    <p>Pomozite zajednici — dodajte nova mesta koja ste otkrili</p>
+                    <h3>Preporuke</h3>
+                    <p>Čitajte iskustva drugih roditelja i delite svoja.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2>O platformi</h2>
-        <p>
-            <strong>Gde sa decom?</strong> je nastalo iz jednostavne potrebe — da roditelji lako 
-            pronađu gde mogu odvesti svoju decu na zabavu, igru ili učenje.
-        </p>
-        <p>
-            Bilo da tražite najbliže igralište za popodnevnu šetnju, kreativnu radionicu za vikend, 
-            ili mesto za dečji rođendan — naša platforma vam pomaže da otkrijete sve opcije u vašem gradu.
-        </p>
+
+    <section class="about">
+        <h2>O projektu</h2>
+        <p>Gde sa decom? je platforma koja pomaže roditeljima da pronađu kvalitetne aktivnosti za svoju decu. Verujemo da svako dete zaslužuje pristup zabavnim i edukativnim sadržajima.</p>
         
-        <div class="brand-connection">
-            <div class="brand-logos">
-                <span class="platform-name">Gde sa decom?</span>
-                <span class="arrow">→</span>
-                <span class="app-name">
-                    <span class="mini-icon">🎡</span>
-                    Igralište
-                </span>
-            </div>
-            <p><strong>Igralište</strong> je zvanična mobilna aplikacija platforme Gde sa decom?</p>
+        <div class="brand-note">
+            <strong>Igralište</strong> je mobilna aplikacija platforme Gde sa decom? — vaš džepni vodič kroz svet dečjih aktivnosti.
         </div>
     </section>
-    
-    <!-- Footer -->
+
     <footer>
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>Gde sa <span>decom?</span></h3>
-                <p>
-                    Platforma za roditelje koji žele da pronađu najbolje aktivnosti, 
-                    igrališta i događaje za svoju decu.
-                </p>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Aplikacija</h4>
-                <a href="#">App Store (uskoro)</a>
-                <a href="#">Google Play (uskoro)</a>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Linkovi</h4>
-                <a href="/privacy">Politika privatnosti</a>
-                <a href="mailto:kontakt@gdesadecom.rs">Kontakt</a>
-            </div>
+        <div class="footer-links">
+            <a href="/privacy">Politika privatnosti</a>
+            <a href="mailto:kontakt@gdesadecom.rs">Kontakt</a>
         </div>
-        
-        <div class="footer-bottom">
-            <span>© 2026 Gde sa decom? Sva prava zadržana.</span>
-            <span>Napravljeno sa ❤️ za roditelje</span>
-        </div>
+        <p>© 2026 Gde sa decom?</p>
     </footer>
 </body>
 </html>
