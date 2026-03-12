@@ -1,0 +1,5 @@
+# robots.txt for gdesadecom.rs
+User-agent: *
+Allow: /
+
+Sitemap: https://gdesadecom.rs/sitemap.xml
