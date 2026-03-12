@@ -23,6 +23,15 @@ function priceLabel(activity: Activity): string {
   return 'Plaćeno'
 }
 
+function renderRating(activity: Activity): string {
+  if (!activity.rating_avg || activity.rating_count === 0) {
+    return 'Novo'
+  }
+
+  const rounded = Math.round(activity.rating_avg * 10) / 10
+  return `${rounded} ★ (${activity.rating_count})`
+}
+
 export default function ActivityCard({ activity }: { activity: Activity }) {
   const icon = CATEGORY_ICONS[activity.category_name] ?? '⭐'
 
@@ -56,6 +65,7 @@ export default function ActivityCard({ activity }: { activity: Activity }) {
           <span>{activity.org_name}</span>
           <span className="font-semibold text-[#1a1a1a]">{priceLabel(activity)}</span>
         </div>
+        <p className="text-xs text-[#666] mt-1">Ocena: {renderRating(activity)}</p>
         {(activity.age_min || activity.age_max) && (
           <p className="text-xs text-[#aaa] mt-1">
             Uzrast:{' '}

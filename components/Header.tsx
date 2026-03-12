@@ -6,9 +6,14 @@ export default function Header() {
       <Link href="/" className="font-extrabold text-xl text-[#1a1a1a] no-underline">
         Gde sa decom?
       </Link>
-      <Link href="/privacy" className="text-[#666] text-sm hover:text-[#1a1a1a] transition-colors">
-        Privatnost
-      </Link>
+      <div className="flex items-center gap-6">
+        <Link href="/aktivnosti" className="text-[#666] text-sm hover:text-[#1a1a1a] transition-colors">
+          Aktivnosti
+        </Link>
+        <Link href="/privacy" className="text-[#666] text-sm hover:text-[#1a1a1a] transition-colors">
+          Privatnost
+        </Link>
+      </div>
     </nav>
   )
 }
