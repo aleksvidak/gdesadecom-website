@@ -3,6 +3,11 @@ type HasNameAndId = {
   public_name: string
 }
 
+type HasTitleAndId = {
+  id: string
+  title: string
+}
+
 const UUID_PATTERN =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
 
@@ -20,6 +25,12 @@ export function buildOrganizationSlug(organization: HasNameAndId): string {
   const nameSlug = slugify(organization.public_name)
   if (!nameSlug) return organization.id
   return `${nameSlug}-${organization.id}`
+}
+
+export function buildActivitySlug(activity: HasTitleAndId): string {
+  const titleSlug = slugify(activity.title)
+  if (!titleSlug) return activity.id
+  return `${titleSlug}-${activity.id}`
 }
 
 export function extractUuidFromSlug(slug: string): string | null {

@@ -1,11 +1,16 @@
 import { createClient } from '@supabase/supabase-js'
-import { extractUuidFromSlug, slugify } from './slug'
+import { buildActivitySlug, extractUuidFromSlug, slugify } from './slug'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
 // Read-only Supabase client for public catalog queries
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+export type ActivityTag = {
+  id: string
+  name: string
+}
 
 export type Activity = {
   id: string
@@ -42,6 +47,10 @@ export type ActivityCategory = {
   name: string
   sort_order: number | null
   count: number
+}
+
+export type ActivityCategoryWithSlug = ActivityCategory & {
+  slug: string
 }
 
 export type Organization = {
@@ -133,6 +142,34 @@ export async function getActivityCategories(): Promise<ActivityCategory[]> {
     .filter((category) => category.count > 0)
 }
 
+export async function getActivityCategoriesWithSlugs(): Promise<ActivityCategoryWithSlug[]> {
+  const categories = await getActivityCategories()
+  const usedSlugs = new Set<string>()
+
+  return categories.map((category) => {
+    const baseSlug = slugify(category.name) || category.id
+    let slug = baseSlug
+    let suffix = 2
+
+    while (usedSlugs.has(slug)) {
+      slug = `${baseSlug}-${suffix}`
+      suffix += 1
+    }
+
+    usedSlugs.add(slug)
+
+    return {
+      ...category,
+      slug,
+    }
+  })
+}
+
+export async function getActivityCategoryBySlug(slug: string): Promise<ActivityCategoryWithSlug | null> {
+  const categories = await getActivityCategoriesWithSlugs()
+  return categories.find((category) => category.slug === slug) ?? null
+}
+
 export async function getPublishedActivitiesPage(
   page = 1,
   pageSize = 12,
@@ -209,6 +246,46 @@ export async function getPublishedActivitiesByOrganization(
 
   if (error) {
     console.error('Error fetching organization activities:', error)
+    return []
+  }
+
+  return data as Activity[]
+}
+
+export async function getPublishedActivitiesByCategory(
+  categoryId: string,
+  limit = 60
+): Promise<Activity[]> {
+  const { data, error } = await supabase
+    .from('v_activity_public')
+    .select('*')
+    .eq('category_id', categoryId)
+    .order('is_featured', { ascending: false })
+    .order('created_at', { ascending: false })
+    .limit(limit)
+
+  if (error) {
+    console.error('Error fetching category activities:', error)
+    return []
+  }
+
+  return data as Activity[]
+}
+
+export async function getPublishedActivitiesByCityName(
+  cityName: string,
+  limit = 120
+): Promise<Activity[]> {
+  const { data, error } = await supabase
+    .from('v_activity_public')
+    .select('*')
+    .ilike('city_name', `%${cityName}%`)
+    .order('is_featured', { ascending: false })
+    .order('created_at', { ascending: false })
+    .limit(limit)
+
+  if (error) {
+    console.error('Error fetching city activities:', error)
     return []
   }
 
@@ -326,18 +403,64 @@ export async function getActivityById(id: string): Promise<Activity | null> {
   return data as Activity
 }
 
-export async function getActivityIdsForSitemap(): Promise<
-  { id: string; created_at: string }[]
+export async function getActivitiesForSitemap(): Promise<
+  { id: string; title: string; created_at: string }[]
 > {
   const { data, error } = await supabase
     .from('v_activity_public')
-    .select('id, created_at')
+    .select('id, title, created_at')
     .order('created_at', { ascending: false })
 
   if (error) {
-    console.error('Error fetching activity ids for sitemap:', error)
+    console.error('Error fetching activities for sitemap:', error)
     return []
   }
 
-  return data as { id: string; created_at: string }[]
+  return data as { id: string; title: string; created_at: string }[]
+}
+
+export async function getActivityBySlug(slug: string): Promise<Activity | null> {
+  const id = extractUuidFromSlug(slug)
+  if (!id) return null
+  return getActivityById(id)
+}
+
+export async function getActivityTags(activityId: string): Promise<ActivityTag[]> {
+  const { data, error } = await supabase
+    .from('activity_tag')
+    .select('tag:tag_id(id, name)')
+    .eq('activity_id', activityId)
+
+  if (error) {
+    console.error('Error fetching activity tags:', error)
+    return []
+  }
+
+  type TagRow = { tag: { id: string; name: string } | Array<{ id: string; name: string }> | null }
+
+  return (data as TagRow[])
+    .map((row) => {
+      const tag = Array.isArray(row.tag) ? row.tag[0] : row.tag
+      return tag ? { id: tag.id, name: tag.name } : null
+    })
+    .filter((t): t is ActivityTag => t !== null)
+}
+
+export async function getAllPublishedActivitiesForStaticParams(): Promise<
+  { id: string; title: string }[]
+> {
+  const { data, error } = await supabase
+    .from('v_activity_public')
+    .select('id, title')
+
+  if (error) {
+    console.error('Error fetching activities for static params:', error)
+    return []
+  }
+
+  return data as { id: string; title: string }[]
+}
+
+export function buildCanonicalActivitySlug(activity: { id: string; title: string }): string {
+  return buildActivitySlug(activity)
 }

@@ -1,6 +1,10 @@
 import type { MetadataRoute } from 'next'
-import { getActivityIdsForSitemap, getPublishedOrganizations } from '@/lib/supabase'
-import { buildOrganizationSlug } from '@/lib/slug'
+import {
+  getActivitiesForSitemap,
+  getActivityCategoriesWithSlugs,
+  getPublishedOrganizations,
+} from '@/lib/supabase'
+import { buildActivitySlug, buildOrganizationSlug } from '@/lib/slug'
 
 const BASE_URL = 'https://gdesadecom.rs'
 
@@ -19,6 +23,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/beograd`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/privacy`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -26,13 +36,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  const [activities, organizations] = await Promise.all([
-    getActivityIdsForSitemap(),
+  const [activities, organizations, categories] = await Promise.all([
+    getActivitiesForSitemap(),
     getPublishedOrganizations(),
+    getActivityCategoriesWithSlugs(),
   ])
 
   const activityRoutes: MetadataRoute.Sitemap = activities.map((a) => ({
-    url: `${BASE_URL}/aktivnosti/${a.id}`,
+    url: `${BASE_URL}/aktivnosti/${buildActivitySlug(a)}`,
     lastModified: new Date(a.created_at),
     changeFrequency: 'weekly',
     priority: 0.8,
@@ -45,5 +56,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  return [...staticRoutes, ...activityRoutes, ...organizationRoutes]
+  const categoryRoutes: MetadataRoute.Sitemap = categories.map((category) => ({
+    url: `${BASE_URL}/kategorije/${category.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'daily',
+    priority: 0.7,
+  }))
+
+  return [...staticRoutes, ...categoryRoutes, ...activityRoutes, ...organizationRoutes]
 }

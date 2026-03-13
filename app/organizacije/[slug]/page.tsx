@@ -5,7 +5,7 @@ import { notFound, redirect } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ActivityCard from '@/components/ActivityCard'
-import { buildOrganizationSlug } from '@/lib/slug'
+import { buildActivitySlug, buildOrganizationSlug } from '@/lib/slug'
 import { getOrganizationProfileBySlug, getPublishedOrganizationBySlug, getPublishedOrganizations } from '@/lib/supabase'
 
 type OrganizationPageParams = {
@@ -311,11 +311,11 @@ export default async function OrganizationPage({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {profile.activities.map((activity) => (
               <div key={activity.id}>
-                <Link href={`/aktivnosti/${activity.id}`} className="block">
+                <Link href={`/aktivnosti/${buildActivitySlug(activity)}`} className="block">
                   <ActivityCard activity={activity} />
                 </Link>
                 <Link
-                  href={`/aktivnosti/${activity.id}`}
+                  href={`/aktivnosti/${buildActivitySlug(activity)}`}
                   className="inline-flex mt-2 text-sm font-semibold text-[#1a1a1a] hover:underline"
                 >
                   Pogledaj detalje aktivnosti →
